@@ -21,15 +21,15 @@ export const QrCode = () => {
         }
     }
     function downloadQrode() {
-        fetch(img)
-            .then((blob) => {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "QRcode.png";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
+        // fetch(img)
+        //     .then((blob) => {
+        //     const link = document.createElement("a");
+        //     link.href = URL.createObjectURL(blob);
+        //     link.download = "QRcode.png";
+        //     document.body.appendChild(link);
+        //     link.click();
+        //     document.body.removeChild(link);
+        // });
     //     .then((response) => response.blob());
     //         .catch ((error) => {
     // console.error("Error Downloading QR Code", error)});
