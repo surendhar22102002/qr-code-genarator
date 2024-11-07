@@ -7,12 +7,11 @@ export const QrCode = () => {
     const [img, setImg] = useState("");
     const [loading, setLoading] = useState(false);
     const [qrCodeData, setQrCodeData] = useState("");
-    const [qrimgSize, setQrImgSize] = useState(20);
 
     async function generateQRcode() {
         setLoading(true);
         try {
-            const url = `https://api.qrserver.com/v1/create-qr-code/?size=${qrimgSize}*${qrimgSize}&data=${encodeURIComponent(qrCodeData)}`
+            const url = `https://api.qrserver.com/v1/create-qr-code/?size=150*150&data=${encodeURIComponent(qrCodeData)}`
             setImg(url);
         } catch (error) {
             console.error("Error generating QR Code", error);
@@ -51,11 +50,6 @@ return (
                     <label>Data for QR Code : </label>
                     <input type="text" placeholder='Enter date for QR Code' className='border-2 border-blue-400 rounded-md  px-5 py-3 mt-2' value={qrCodeData} onChange={(e) => setQrCodeData(e.target.value)} />
                 </div>
-
-                {/* <div className='p-4 flex flex-col'>
-                        <label>Image Size (e.g., 100) :</label>
-                        <input type="text" placeholder='Enter image Size' className='border-2 border-blue-400 rounded-md px-5 py-3 mt-2' value={qrimgSize} onChange={(e) => setQrImgSize(e.target.value) }/>
-                    </div>  */}
 
                 <div className='flex items-center justify-center'>
                     <button className='border-none rounded-md m-2 bg-green-600 text-white px-2 py-3 hover:bg-green-700' onClick={generateQRcode} disabled={loading}>Generate QR Code</button>
